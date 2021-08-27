@@ -1,12 +1,14 @@
 package org.example;
 
+import org.openqa.selenium.WebDriver;
+
 import java.util.Scanner;
 
 public class SeleniumTryout {
 
     public static String site = "https://www.google.com/";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("\n1. close()" +
@@ -68,18 +70,28 @@ public class SeleniumTryout {
                 int browserChoice3 = scan.nextInt();
                 if (browserChoice3 == 1 )
                 {
-                    Store.chrome().get(site);
-                    System.out.println("Tittle is" + Store.chrome().getTitle());
+                    WebDriver driver = Store.chrome();
+                    driver.get(site);
+                    Thread.sleep(5000);
+                    String str = driver.getTitle();
+
+                    System.out.println("Tittle is"+ str);
                 }
                 else if (browserChoice3 == 2)
                 {
-                    Store.fireFox().get(site);
-                    System.out.println("Tittle is" + Store.fireFox().getTitle());
+                    WebDriver driver = Store.fireFox();
+                    driver.get(site);
+                    Thread.sleep(5000);
+                    String str = driver.getTitle();
+                    System.out.println("Tittle is" + driver.getTitle());
                 }
                 else
                 {
-                    Store.msEdge().get(site);
-                    System.out.println("Tittle is" + Store.msEdge().getTitle());
+                    WebDriver driver = Store.msEdge();
+                    driver.get(site);
+                    Thread.sleep(5000);
+                    String str = driver.getTitle();
+                    System.out.println("Tittle is" + driver.getTitle());
                 }
                 break;
 
@@ -90,18 +102,27 @@ public class SeleniumTryout {
                 int browserChoice4 = scan.nextInt();
                 if (browserChoice4 == 1 )
                 {
-                    Store.chrome().get(site);
-                    System.out.println("PageSource: " + Store.chrome().getPageSource());
+                    WebDriver driver = Store.chrome();
+                    driver.get(site);
+                    Thread.sleep(5000);
+                    String str = driver.getPageSource();
+                    System.out.println("PageSource: " + driver.getPageSource());
                 }
                 else if (browserChoice4 == 2)
                 {
-                    Store.fireFox().get(site);
-                    System.out.println("PageSource: " + Store.fireFox().getPageSource());
+                    WebDriver driver = Store.chrome();
+                    driver.get(site);
+                    Thread.sleep(5000);
+                    String str = driver.getPageSource();
+                    System.out.println("PageSource: " + driver.getPageSource());
                 }
                 else
                 {
-                    Store.msEdge().get(site);
-                    System.out.println("PageSource: " + Store.msEdge().getPageSource());
+                    WebDriver driver = Store.msEdge();
+                    driver.get(site);
+                    Thread.sleep(5000);
+                    String str = driver.getPageSource();
+                    System.out.println("PageSource: " + driver.getPageSource());
                 }
                 break;
         }
